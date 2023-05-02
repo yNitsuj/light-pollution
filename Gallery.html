@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Grid with Pop-up</title>
+	<link rel="stylesheet" type="text/css" href="gallery.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;700&display=swap" rel="stylesheet">
+	<script>
+		function showPopup(imageUrl, captionText) {
+	// Get the popup element and the image element inside it
+	var popup = document.getElementById('popup');
+	var popupImage = popup.querySelector('.popup-image');
+	var popupCaption = popup.querySelector('#popup-caption');
+
+	// Set the image source and caption text
+	popupImage.src = imageUrl;
+	popupCaption.textContent = captionText;
+
+	// Show the popup
+	popup.style.display = 'flex';
+}
+
+function hidePopup() {
+	// Get the popup element and hide it
+	var popup = document.getElementById('popup');
+	popup.style.display = 'none';
+}
+
+// Add event listeners to all of the images
+var images = document.querySelectorAll('.grid-item img');
+for (var i = 0; i < images.length; i++) {
+	images[i].addEventListener('click', function() {
+		// Get the image source and caption text
+		var imageUrl = this.src;
+		var captionText = this.alt;
+
+		// Show the popup with the image and caption
+		showPopup(imageUrl, captionText);
+	});
+}
+
+// Add event listener to the close button in the popup
+var closeButton = document.getElementById('popup-close');
+closeButton.addEventListener('click', hidePopup);
+
+	</script>
+</head>
+<body>
+	<div class="grid-container">
+		<div class="grid-item">
+            <div class="parking">
+			    <img src="IMG_5196.jpg" alt="College Avenue Parking Deck" class="grid-image" onclick="showPopup('IMG_5196.jpg', '2:24 AM, College Avenue Parking Deck, New Brunswick, NJ')">
+			    <div class="caption">
+                    <p>
+                    2:24 AM
+                    <br>
+                    College Avenue Parking Deck, New Brunswick, NJ
+                    </p>
+			    </div>
+                <video autoplay controls loop>
+                    <source src="Light pollution.mp4" type="video/mp4">
+                </video>
+                    <p class="caption">
+                        The Scope of Light Pollution on Population Centers
+                    </p>
+                <img src="IMG_5224.jpg" alt="Middlesex Greenway" class="grid-image" onclick="showPopup('IMG_5224.jpg', '2:24 AM, College Avenue Parking Deck, New Brunswick, NJ')">
+                <div class="caption">
+                    <p>
+                        3:23 AM
+                        <br>
+                        Middlesex Greenway, Edison, NJ
+                    </p>
+                </div>
+                <img src="IMG_5228.jpg" alt="Lincoln" class="grid-image" onclick="showPopup('IMG_5228.jpg', '4:03 AM, Lincoln Highway, Edison, NJ')">
+                <div class="caption">
+                    <p>
+                        4:03 AM
+                        <br>
+                        Lincoln Highway, Edison, NJ
+                    </p>
+                </div>
+            </div>
+		</div>
+		<div class="grid-item">
+			<img src="IMG_5207.jpg" alt="Hadley" class="grid-image" onclick="showPopup('IMG_5207.jpg', '2:46 AM, Hadley Center, Piscataway, NJ')">
+			    <p class="caption">
+                    2:46 AM
+                    <br>
+                    Hadley Center, Piscataway, NJ
+                </p>
+            <img src="IMG_5217.jpg" alt="Middlesex Mall" class="grid-image" onclick="showPopup('IMG_5217.jpg', '2:53 AM, Middlesex Mall, Piscataway, NJ')">
+                <div class="caption">
+                    <p>
+                        2:53 AM
+                    <br>
+                        Middlesex Mall, Piscataway, NJ
+                    </p>
+                </div>
+                <img src="final poster light.png" alt="poster dark" class="grid-image" onclick="showPopup('final poster light.png', 'Unlighting the Night')">
+                <p class="caption">
+                    Unlighting the Night
+                </p>
+        </div>
+		<div class="grid-item">
+            <video autoplay controls loop>
+                <source src="Light Pollution Birds.mp4" type="video/mp4">
+            </video>
+                <p class="caption">
+                    A Bird's Eye View on Light Pollution
+                </p>
+			<img src="IMG_5218.jpg" alt="Topgolf" class="grid-image" onclick="showPopup('IMG_5218.jpg', '3:14 AM, Topgolf, Edison, NJ')">
+			<p class="caption">
+                3:14 AM
+                <br>
+                Topgolf, Edison, NJ
+            </p>
+            <img src="IMG_5226.jpg" alt="Metropark1" class="grid-image" onclick="showPopup('IMG_5226.jpg', '4:32 AM, Metropark, Iselin, NJ')">
+			<p class="caption">
+                3:42 AM
+                <br>
+                Metropark, Iselin, NJ
+            </p>
+		</div>
+		<div class="grid-item">
+			<img src="IMG_5214.jpg" alt="Stelton" class="grid-image" onclick="showPopup('IMG_5214.jpg', '2:58 AM, Stelton Rd, Piscataway, NJ')">
+			<p class="caption">
+                2:58 AM
+                <br>
+                Stelton Rd, Piscataway, NJ
+            </p>
+            <img src="final poster dark.png" alt="poster dark" class="grid-image" onclick="showPopup('final poster dark.png', 'Lighting the Night')">
+            <p class="caption">
+                Lighting the Night
+            </p>
+            <img src="IMG_5227.jpg" alt="Metropark2" class="grid-image" onclick="showPopup('IMG_5227.jpg', '3:46 AM, Metropark, Iselin, NJ')">
+			<p class="caption">
+                3:46 AM
+                <br>
+                Metropark, Iselin, NJ
+            </p>
+		</div>
+	</div>
+
+	<div id="popup" onclick="hidePopup()">
+		<img src="" alt="" class="popup-image">
+		<p class="caption" id="popup-caption"></p>
+	</div>
+
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
